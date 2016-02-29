@@ -353,12 +353,8 @@ h2 {
 	font-size:smaller;
 	background-color:#FFF;
 }
-#dlg:hover {
-	background-color:rgba(255,255,255,0.9);
-}
-#dlg{
+#dlg {
 	background-color:rgba(255,255,255,0.5);
-	transition: all 1s;
 }
 #cpu_controller {
 	background-image:url(../media/lmccontroller.png);
@@ -421,7 +417,4 @@ h2 {
 #levelEditor {
 	width:100%;
 	height:300px;
-}
-#welcome {
-	margin: 10px;
 }

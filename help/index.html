@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="bootstrap.min.css" media="screen" charset="utf-8">
+        <title>Battle Tanks | Teacher's Notes</title>
+        <style media="screen">
+          body {
+            padding-top: 70px;
+          }
+        </style>
+    </head>
+    <body>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#top">Battle Tanks</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="#cpu">The CPU</a></li>
+              <li><a href="#output">Output Channels</a></li>
+              <li><a href="#labels">Data Labels</a></li>
+              <li><a href="#programs">Example Programs</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+
+      <div class="container">
+
+        <!-- Main component for a primary marketing message or call to action -->
+        <div class="jumbotron">
+          <div class="alert alert-info" role="alert">Get a copy of this information in a <a href="battle_tanks_teacher_notes.docx">Word document</a>.</div>
+          <div class="alert alert-info" role="alert">Download a <a href="battle_tanks_help_sheet.docx">Battle Tanks Help Sheet</a>.</div>
+          <p>
+            Thanks to Pete Dring for the original idea which can be found at <a href="http://pddring.github.io/cpu-battle-tank/">http://pddring.github.io/cpu-battle-tank/</a>.
+          </p>
+          <p>
+            Any CPU can only work with very simple instructions to carry out any programming task. Battle Tanks is a way of creating instructions for a simulated CPU which produces a visual result for the student. To program the CPU you must use Assembly language which a very low level set of instructions to work with. Assembly language is often even more difficult to comprehend at first than higher level languages e.g. Visual Basic, Python, Smallbasic.   Battle tanks gives you an insight into what is going on inside the CPU when you write a program to achieve a particular outcome.
+          </p>
+          <p>
+            If you were using a high level language to program the tank you would probably used commands such as:
+          </p>
+          <p>
+            <pre>
+Tank.MoveForward(2) # Moves tank 2 spaces forward
+Tank.MoveBackward(5) # Moves tank 2 spaces forward
+Tank.Turn(180) #Turn Tank 180 degrees
+Tank.Fire() # Fire the gun
+
+.. and so on.
+            </pre>
+
+          </p>
+          <a name="cpu"></a>
+          <h1>How The CPU Works</h1>
+          <p>
+            The way this CPU simulator works is that it has a register (storage location) called the Accumulator that the user can load values into. These values can then be Output to one of four different channels, each of which controls the tank in a different way. Instructions to control the tank are written in Assembly language, which is then compiled into machine code which the CPU can understand and execute.
+          </p>
+          <a name="output"></a>
+          <h1>Output Channels</h1>
+          <p>
+            Below are the different Outputs channel number that must be used to control the tank...
+          </p>
+          <p>
+            <ul class="list-unstyled">
+              <li>Channel 1 - Movement</li>
+              <li>Channel 2 - Steering</li>
+              <li>Channel 3 - Turret Movement</li>
+              <li>Channel 4 - Firing the Gun</li>
+            </ul>
+          </p>
+          <p>
+            To fully control the tank, each channel does something different depending on what number is Output to the channel. This is summarised below:
+          </p>
+          <p>
+            <b>Channel 1 - Movement</b>
+            <pre>
+0 = Tank Moves Forward
+1 = Tank Moves Backwards
+            </pre>
+          </p>
+          <p>
+            <b>Channel 2 - Steering</b>
+            <pre>
+0 = Tank Turns To Face North
+2 = Tank Turns To Face East
+4 = Tank Turns To Face South
+6 = Tank Turns To Face West
+            </pre>
+          </p>
+          <p>
+            <b>Channel 3 - Aim Gun</b>
+            <pre>
+0 = Tank Turns To Face North
+1 = Tank Trusn To Face North East
+2 = Tank Turns To Face East
+3 = Tank Turns To Face South East
+4 = Tank Turns To Face South
+5 = Tank Turns To Face South West
+6 = Tank Turns To Face West
+7 = Tank Turns To Face North West
+            </pre>
+          </p>
+          <p>
+            <b>Channel 4 - Firing</b>
+            <pre>
+0 = Fire Gun
+            </pre>
+          </p>
+          <p>
+            To Control the tank, you need to decide what you want the tanks to do with each instruction eg. move, turn, fire and create Assembly language instructions for each step. To complete each instruction, you will have to decide what you want the tank to do, and then load that instruction it the accumulator, the data loaded into the accumulator can then be output to the appropriate output channel.e.g.
+            <pre>
+LDA 1 // Load the (Data) number 1 into the Accumulator
+OUT 1  // Output the contents of accumulator to Channel 1 (Movement)
+HLT - Stop the program
+            </pre>
+          </p>
+          <a name="labels"></a>
+          <h1>Data Labels</h1>
+          <p>
+            To make writing programs a little easier the programmer can use labels to assign values so that the assembly language is easier to read and the intention of the instruction easier to follow. Comments (instructions ignored when the code is compiled) must be prefaced by a double slash //
+          </p>
+          <pre>
+// this will be ignored by the compiler.
+          </pre>
+
+          <a name="programs"></a>
+          <h1>Writing Assembly Language Programs</h1>
+          <div class="alert alert-info" role="alert"><a href="battle_tanks_example_programs.pptx">PowerPoint Presentation</a> containing example programs showing Output Channel and Accumulator values.</div>
+          <p>
+            The basic principle is to decide what you want to do e.g move the tank forwards, load that number (0) into the accumulator and then output the contents of the accumulator to the appropriate output channel (channel 1 for movement)
+          </p>
+          <p>
+            A first Assembly Language program to move the tank forwards 2 spaces
+          </p>
+          <pre>
+// Move Forwards
+LDA Forwards    // //uses the label Forwards to load the value 0 into the Accumulator
+OUT 1           // Move forwards by Outputting value 0 from accumulator to Output Channel 1
+OUT 1           // Move forwards by Outputting value 0 from accumulator to Output Channel 1
+
+HLT             // stop the CPU
+
+//Data Labels - help to simplify code by attaching descriptions to the data values
+Forwards    DAT 0   // assign the value 0 in the Label Forwards
+Backwards   DAT 1   //assign the value 0 in the Label Backwards
+          </pre>
+
+          <p>
+            Notice that there is no simple way to move more than one space at time, except repeat the Output instruction.  This is one feature of low level languages; it often requires more instructions to achieve something that is relatively simple with higher level languages.
+          </p>
+          <p>
+            An Assembly Language program to move the tank forwards then backwards 2 spaces
+          </p>
+          <pre>
+// Move Forwards
+LDA Forwards    //uses the label Forwards to load the value 0 into the Accumulator
+OUT 1           // Move forwards by Outputting value 0 from accumulator to Output Channel 1
+OUT 1           // Move forwards by Outputting value 0 from accumulator to Output Channel 1
+//Move Backwards
+LDA Backwards //uses the label Backwards to load the value 1 into the Accumulator
+OUT 1           // Move Backwards
+OUT 1          //// Move forwards by Outputting value 1 from accumulator to Output
+Channel 1
+HLT             // stop the CPU
+
+//Data Labels - help to simplify code by attaching descriptions to the data values
+Forwards    DAT 0   // assign the value 0 in the Label Forwards
+Backwards   DAT 1   //assign the value 1 in the Label Backwards
+          </pre>
+          <p>
+            <b>Turning the tank</b>. The tank can be steered in any one of 4 directions which correspond to compass points. (see the table <a href="#output">above</a>).
+          </p>
+          <p>
+            A simple assembly language program to get the tank to turn right (East):
+          </p>
+          <pre>
+//Turn Right
+LDA East //uses the label East to load the value 2 into the Accumulator
+OUT 2  //Turns the tank to the right (East) by outputting the contents of the Accumulator to Channel 2
+HLT
+
+//Data Labels - help to simplify code by attaching descriptions to the data values
+North    DAT 0   // assign the value 0 to the Label North
+East   DAT 2   //assign the value 0 to the Label East
+South DAT 4   // assign the value 0 to the Label South
+West DAT 6   // assign the value 0 to  the Label West
+          </pre>
+          <p>
+            Movement and Turning. Move the tank 2 spaces forwards Turn West and Move 2 spaces Forward
+          </p>
+          <pre>
+// Move Forwards
+LDA Forwards
+OUT 1
+OUT 1
+//Turn Tank
+LDA West
+OUT 2
+// Move Forwards
+LDA Forwards
+OUT 1
+OUT 1
+
+//Data Labels - help to simplify code by attaching descriptions to the data values
+North    DAT 0   // assign the value 0 to the Label North
+East   DAT 2   //assign the value 0 to the Label East
+South DAT 4   // assign the value 0 to the Label South
+West DAT 6   // assign the value 0 to the Label West
+Forwards    DAT 0   // assign the value 0 in the Label Forwards
+Backwards   DAT 1   //assign the value 0 in the Label Backwards
+          </pre>
+        </div>
+      </div>
+
+    </body>
+</html>
