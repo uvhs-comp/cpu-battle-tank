@@ -1,18 +1,14 @@
 bt.addLevel({
 	controller: bt.CONTROLLER_LITTLE_MAN_COMPUTER,
 	tank: {
-		x:4, y:1,
-		name: "You", color:"rgba(0, 255,0,0.8)",
-		code:"Ly8gSGludDogTG9hZCAoTERBKSB0aGUgcmVxdWlyZWQgZGF0YQ0KLy8gSGludDogT3V0cHV0IChPVVQpIG9uIHRoZSByaWdodCBjaGFubmVsDQoNCi8vIFlvdXIgaW5zdHJ1Y3Rpb25zDQoNCg0KLy8gRGF0YSBMYWJlbHMNCi8vIE1vdmVtZW50IGRhdGEgKGNoYW5uZWwgMSkNCkZvcndhcmQgICAgREFUIDANCkJhY2t3YXJkICAgREFUIDENCg0KLy8gU3RlZXJpbmcgZGF0YSAoY2hhbm5lbCAyKQ0KTm9ydGggIERBVCAwDQpFYXN0ICAgREFUIDINClNvdXRoICBEQVQgNA0KV2VzdCAgIERBVCA2DQo="
+		x:5, y:5,
+		name: "You", color: "rgba(0, 255,0,0.8)",
+		code: "Ly8gV3JpdGUgdGhlIGluc3RydWN0aW9ucyBiZWxvdyB0aGUgY29tbWVudHMNCi8vIEhpbnQ6IExvYWQgKExEQSkgdGhlIHJlcXVpcmVkIGRhdGENCi8vIEhpbnQ6IE91dHB1dCAoT1VUKSBvbiB0aGUgY29ycmVjdCBjaGFubmVsDQovLyAxID0gbW92ZW1lbnQgYW5kIDIgPSBzdGVlcmluZw0KDQovLyBNb3ZlIGZvcndhcmRzIDMgc3BhY2VzDQoNCi8vVHVybiB0YW5rIHRvIHdlc3QNCkxEQSBXZXN0DQpPVVQgMg0KDQovLyBNb3ZlIGZvcndhcmRzIDIgc3BhY2VzDQoNCg0KLy8gRGF0YSBMYWJlbHMNCi8vIE1vdmVtZW50IGRhdGEgKGNoYW5uZWwgMSkNCkZvcndhcmQgICAgREFUIDANCkJhY2t3YXJkICAgREFUIDENCg0KLy8gU3RlZXJpbmcgZGF0YSAoY2hhbm5lbCAyKQ0KTm9ydGggIERBVCAwDQpFYXN0ICAgREFUIDINClNvdXRoICBEQVQgNA0KV2VzdCAgIERBVCA2DQo="
 		},
 	title: "Level 4",
-	description:"<p>Visit the checkpoints whilst avoiding the mine.</p><p>You cannot drive a tank through water!</p>",
+	description: "<p>In this level your job is to navigate to the two checkpoints.</p><p>Click on edit code label above the tank to get started!</p>",
 	tasks:[
-		[3, 2, bt.ITEM_TYPE_CHECKPOINT, bt.ACTION_COLLECT],
-		[5, 4, bt.ITEM_TYPE_CHECKPOINT, bt.ACTION_COLLECT],
-		[3, 3, bt.ITEM_TYPE_WATER, bt.ACTION_STATIC],
-		[4, 3, bt.ITEM_TYPE_WATER, bt.ACTION_STATIC],
-		[5, 3, bt.ITEM_TYPE_WATER, bt.ACTION_STATIC],
-		[3, 4, bt.ITEM_TYPE_MINE, bt.ACTION_STATIC]
+		[5,2, bt.ITEM_TYPE_CHECKPOINT, bt.ACTION_COLLECT],
+		[3,2, bt.ITEM_TYPE_CHECKPOINT, bt.ACTION_COLLECT]
 	]
 });

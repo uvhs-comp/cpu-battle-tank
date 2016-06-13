@@ -420,5 +420,5 @@ h2 {
 }
 
 a[href="#popupHelp"], a#helpButton {
-	margin-left: 100px;
+	margin-left: 100px !important;
 }
