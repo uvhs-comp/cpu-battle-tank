@@ -1,13 +1,13 @@
 bt.addLevel({
 	controller: bt.CONTROLLER_LITTLE_MAN_COMPUTER,
 	tank: {
-		x:3, y:3,
+		x:2, y:4,
 		name: "You", color: "rgba(0, 255, 0,0.8)",
-		code: "Ly8gVGhlIGZpcnN0IDMgaW5zdHJ1Y3Rpb25zIGFyZSBpbmNvbXBsZXRlDQovLyBDb21wbGV0ZSB0aGVtIGJlbG93DQoNCi8vIEluc3RydWN0aW9ucw0KCUxEQSAgLy8gTG9hZCBCYWNrd2FyZCAoMSkNCglPVVQgICAgICAgIC8vIE91dHB1dCBvbiBNb3ZlbWVudCBjaGFubmVsDQoJT1VUICAgICAgICAvLyBPdXRwdXQgb24gTW92ZW1lbnQgY2hhbm5lbA0KCUhMVCAgICAgICAgIC8vIFN0b3AgdGhlIHByb2dyYW0NCg0KLy8gRGF0YSBsYWJlbHMNCi8vIENoYW5uZWwgMSAtIG1vdmVtZW50DQpGb3J3YXJkICAgICBEQVQgMA0KQmFja3dhcmQgICAgREFUIDENCg=="
+		code: "Ly8gTW92ZSB0aGUgdGFuayBmb3J3YXJkIDMgc3F1YXJlcw0KDQovLyBJbnN0cnVjdGlvbnMNCglMREEgRm9yd2FyZCAvLyBMb2FkIEJhY2t3YXJkICgxKQ0KCU9VVCAxICAgICAgIC8vIE1vdmUgZm9yd2FyZCAxIHNxdWFyZQ0KCU9VVCAxICAgICAgIC8vIE1vdmUgZm9yd2FyZCAxIHNxdWFyZQ0KCS8vIE1vdmUgdGhlIHRhbmsgZm9yd2FyZCAxIG1vcmUgc3F1YXJlDQoJDQoJSExUICAgICAgICAgLy8gU3RvcCB0aGUgcHJvZ3JhbQ0KDQovLyBEYXRhIGxhYmVscw0KLy8gQ2hhbm5lbCAxIC0gbW92ZW1lbnQNCkZvcndhcmQgICAgIERBVCAwDQpCYWNrd2FyZCAgICBEQVQgMQ0K"
 		},
 	title: "Level 1",
-	description: "<p>In this level your job is to move backwards to the checkpoint.</p><p>Click on edit code label above the tank to get started!</p>",
+	description: "<p>In this level your job is to move forwards to the checkpoint.</p><p>Click on edit code label above the tank to get started!</p>",
 	tasks:[
-		[3,5, bt.ITEM_TYPE_CHECKPOINT, bt.ACTION_COLLECT]
+		[2, 1, bt.ITEM_TYPE_CHECKPOINT, bt.ACTION_COLLECT]
 	]
 });
