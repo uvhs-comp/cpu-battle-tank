@@ -3,6 +3,8 @@ This fork of the project is intended for use with key stage 3 students as part o
 
 To view this fork of cpu-battle-tank, click here: http://uvhs-comp.github.io/cpu-battle-tank/
 
+Additional resources can be found: http://uvhs-comp.github.io/cpu-battle-tank/resources/
+
 For an overview of what Battle Tanks (Turtles) is all about, watch this fantastic introduction by Pete Dring: https://www.youtube.com/watch?v=9JgtS8XH-X0
 
 # cpu-battle-tank
